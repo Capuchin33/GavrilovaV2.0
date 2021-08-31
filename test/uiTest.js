@@ -58,7 +58,7 @@ describe('google search query', () => {
         try {
             await driver.get('https://www.google.com');
             await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
-            await driver.wait(until.titleIs(title), 1000);
+            //await driver.wait(until.titleIs(title), 1000);
 
             await assertingResultsMoreThanOnFirstPage(driver);
 
@@ -78,7 +78,7 @@ describe('google search query', () => {
         try {
             await driver.get('https://www.google.com');
             await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
-            await driver.wait(until.titleIs(title), 1000);
+            //await driver.wait(until.titleIs(title), 1000);
 
             //assert that we have empty results to search query
             const emptySearchQueryText = "Your search - " + searchQuery + " - did not match any documents.";
@@ -109,7 +109,7 @@ describe('google search query', () => {
             await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
             let suggestedQuery = await driver.findElement(By.css("a#fprsl i")).getText();
             console.log("suggested query: " + suggestedQuery + "\n original query: " + searchQuery);
-            await driver.wait(until.titleIs(title), 1000);
+            //await driver.wait(until.titleIs(title), 1000);
 
             //assert show search results for suggested query instead of original
             assert.strictEqual(suggestedQuery !== searchQuery, true, "Suggested query and original are equal");

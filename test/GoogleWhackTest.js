@@ -3,6 +3,8 @@
 
 import {Builder, By, Key, until} from 'selenium-webdriver';
 import * as assert from "assert";
+import chromedriver from 'chromedriver';
+
 
 function size(object) {
     let i = 0;
@@ -41,7 +43,7 @@ describe('GoogleWhack search query', () => {
         try {
             await driver.get('https://www.google.com');
             await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
-            await driver.wait(until.titleIs(title), 1000);
+            //await driver.wait(until.titleIs(title), 2000);
             console.log("search query: " + searchQuery);
 
             //assert that we have nonempty results to search query
@@ -93,7 +95,7 @@ describe('GoogleWhack search query', () => {
         try {
             await driver.get('https://www.google.com');
             await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
-            await driver.wait(until.titleIs(title), 1000);
+            //await driver.wait(until.titleIs(title), 1000);
 
             //assert that we have nonempty results to search query
             let actualResult = await driver.findElement(By.id("result-stats")).isDisplayed();
